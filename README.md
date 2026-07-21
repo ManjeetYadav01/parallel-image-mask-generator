@@ -1,31 +1,46 @@
-Project: Parallel Image Processing with OpenCV
+# Parallel Image Mask Generator
 
-Description:
-This Python script leverages OpenCV and multiprocessing to efficiently process a set of JPG images in parallel. For each image, it:
+A Python script that processes multiple images in parallel using the `multiprocessing` module and OpenCV.
 
-Reads the Image: Loads the image from the specified directory.
-Creates a Binary Mask: Generates a binary mask where pixels with all three color channels (RGB) exceeding 200 are set to 255, and others to 0.
-Writes the Mask: Saves the binary mask as a PNG image (lossless format).
-Counts Pixels: Calculates the total number of pixels with a value of 255 in the mask.
-Parallel Processing: Distributes the image processing tasks across multiple CPU cores using multiprocessing for faster execution.
-Logs Total Pixel Count: Prints the cumulative count of pixels with a value of 255 across all processed images.
+## Features
 
-Requirements:
-Python
-OpenCV
-NumPy
-Multiprocessing
+- Read all JPG images from a directory
+- Generate binary masks based on pixel intensity
+- Save masks as PNG files
+- Count white pixels in each mask
+- Parallel image processing using multiprocessing
 
-Install Required Packages:
-! pip install opencv-python numpy multiprocessing
+## Requirements
 
-Execute the file:
-test.ipynb
+```bash
+pip install opencv-python numpy
+```
 
-Output:
-The script will create PNG files for each input image, representing the binary masks. The total count of pixels with a value of 255 across all masks will be printed to the console.
+## Usage
 
-Additional Notes:
-For large datasets, consider further optimization techniques like asynchronous programming or GPU acceleration.
-Adjust the threshold value (200) to suit your specific image processing needs.
-Experiment with different output formats and compression levels to balance image quality and file size.
+Update the image directory:
+
+```python
+image_dir = "path/to/images"
+```
+
+Run:
+
+```bash
+python main.py
+```
+
+## Output
+
+For each image:
+
+```
+image1.jpg
+image1_mask.png
+```
+
+Example:
+
+```
+Total pixels with mask value 255: 18598
+```
